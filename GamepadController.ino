@@ -72,9 +72,6 @@ void setup() {
   pinMode(A1, INPUT_PULLUP);
   pinMode(A2, INPUT_PULLUP);
   pinMode(A3, INPUT_PULLUP);
-
-  //Debugging
-  Serial.begin(9600);
   
   //Act as HID Device
   Gamepad.begin();
@@ -108,12 +105,6 @@ void InitEncoder(int Button1, int Button2, int Pin1, int Pin2, long Arr[3]) {
   int OldButtonStatus1 = Arr[0];
   int OldButtonStatus2 = Arr[1];
   long LastDebounce = millis() - Arr[2];
-  Serial.print(ButtonStatus1);
-  Serial.print(" ");
-  Serial.println(ButtonStatus2);
-  Serial.print(OldButtonStatus1);
-  Serial.print(" ");
-  Serial.println(OldButtonStatus2);
 
   if(LastDebounce > Debounce) {
     Gamepad.release(Button1);
